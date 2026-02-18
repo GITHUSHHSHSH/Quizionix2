@@ -1,0 +1,388 @@
+{
+  "concepts": [
+    {
+      "id": "math-algebra-linear-model",
+      "subject": "Mathematics",
+      "topic": "Algebra",
+      "name": "Slope-Intercept Interpretation",
+      "skill": "Interpret linear equations",
+      "learningTarget": "Explain what slope and intercept mean in context",
+      "keyIdea": "In y = mx + b, m is rate of change and b is starting value.",
+      "questionStems": [
+        "A model is written as y = mx + b. Which statement correctly interprets m and b?",
+        "Which interpretation of y = mx + b is mathematically valid in real-world modeling?"
+      ],
+      "correctStatements": [
+        "m shows how much y changes for each 1-unit increase in x, while b is y when x = 0.",
+        "m is the constant rate of change, and b is the initial value."
+      ],
+      "misconceptions": [
+        "m is always the y-value when x = 0, and b is the rate of change.",
+        "m and b are both starting values with no effect on trend.",
+        "b controls slope while m only shifts the graph vertically."
+      ],
+      "applications": [
+        "Use the slope to compare growth speed between two linear models.",
+        "Use the intercept to estimate a baseline before changes begin."
+      ],
+      "challengePrompts": [
+        "Choose the strongest reason why slope is useful for prediction over long intervals."
+      ],
+      "hints": [
+        "Match the equation term with graph behavior: tilt versus vertical start."
+      ]
+    },
+    {
+      "id": "math-functions-domain-range",
+      "subject": "Mathematics",
+      "topic": "Functions",
+      "name": "Domain and Range Constraints",
+      "skill": "Analyze valid input and output sets",
+      "learningTarget": "Identify restrictions that make a function meaningful",
+      "keyIdea": "Domain lists allowed inputs; range lists resulting outputs.",
+      "questionStems": [
+        "What is the best distinction between domain and range of a function?",
+        "In modeling, why must domain be checked before interpreting outputs?"
+      ],
+      "correctStatements": [
+        "Domain is the set of possible inputs, while range is the set of resulting outputs.",
+        "Checking domain prevents using input values that make the model invalid."
+      ],
+      "misconceptions": [
+        "Domain and range are interchangeable names for outputs.",
+        "Range is chosen first, then domain is forced to match without restrictions.",
+        "Any real number can be used as input for every function model."
+      ],
+      "applications": [
+        "Exclude impossible time values like negative hours in growth models.",
+        "Restrict outputs when interpreting population models with practical limits."
+      ],
+      "challengePrompts": [
+        "Pick the argument that best explains why context can shrink mathematical domain."
+      ],
+      "hints": [
+        "Think input first, then output produced from that input."
+      ]
+    },
+    {
+      "id": "physics-kinematics-velocity",
+      "subject": "Physics",
+      "topic": "Kinematics",
+      "name": "Velocity as Rate of Position Change",
+      "skill": "Interpret motion quantities",
+      "learningTarget": "Differentiate speed and velocity in one dimension",
+      "keyIdea": "Velocity includes direction; speed is magnitude only.",
+      "questionStems": [
+        "Which statement about velocity is scientifically correct?",
+        "Why is direction essential when reporting velocity?"
+      ],
+      "correctStatements": [
+        "Velocity describes how position changes per unit time and includes direction.",
+        "Two objects can have the same speed but different velocities if directions differ."
+      ],
+      "misconceptions": [
+        "Velocity and speed are always identical because both use distance and time.",
+        "Velocity is only used when acceleration is zero.",
+        "Direction has no effect on motion analysis if speed is known."
+      ],
+      "applications": [
+        "Use sign convention to detect reversal of motion.",
+        "Compare average velocity over displacement, not total path length."
+      ],
+      "challengePrompts": [
+        "Select the best critique of using speed instead of velocity in displacement problems."
+      ],
+      "hints": [
+        "Ask whether the quantity can be positive or negative due to direction."
+      ]
+    },
+    {
+      "id": "physics-forces-newton2",
+      "subject": "Physics",
+      "topic": "Forces and Motion",
+      "name": "Net Force and Acceleration",
+      "skill": "Apply Newton's Second Law conceptually",
+      "learningTarget": "Relate mass, net force, and acceleration",
+      "keyIdea": "Acceleration is proportional to net force and inversely proportional to mass.",
+      "questionStems": [
+        "Which statement best matches Newton's Second Law?",
+        "How does changing mass affect acceleration if net force stays constant?"
+      ],
+      "correctStatements": [
+        "For constant mass, larger net force produces larger acceleration.",
+        "If net force is fixed, increasing mass decreases acceleration."
+      ],
+      "misconceptions": [
+        "Mass and acceleration increase together under the same net force.",
+        "An object moving fast must have a large net force acting on it.",
+        "No acceleration can occur unless velocity is already high."
+      ],
+      "applications": [
+        "Explain why loaded carts accelerate less than empty carts with same push.",
+        "Predict acceleration direction from net force direction."
+      ],
+      "challengePrompts": [
+        "Choose the strongest evidence that net force, not speed, controls acceleration change."
+      ],
+      "hints": [
+        "Focus on what causes change in motion, not motion value alone."
+      ]
+    },
+    {
+      "id": "chem-atomic-electron",
+      "subject": "Chemistry",
+      "topic": "Atomic Structure",
+      "name": "Electron Arrangement",
+      "skill": "Connect electron arrangement to chemical behavior",
+      "learningTarget": "Explain why valence electrons matter",
+      "keyIdea": "Valence electrons determine bonding tendencies and reactivity patterns.",
+      "questionStems": [
+        "Why are valence electrons important in chemistry?",
+        "Which statement correctly links valence electrons and bonding?"
+      ],
+      "correctStatements": [
+        "Valence electrons participate most directly in chemical bonding.",
+        "Elements with similar valence patterns often show similar chemical behavior."
+      ],
+      "misconceptions": [
+        "Core electrons mostly determine bonding because they are closer to nucleus.",
+        "All electrons contribute equally to reactivity in ordinary reactions.",
+        "Valence electrons matter only for ionic compounds, not covalent ones."
+      ],
+      "applications": [
+        "Use valence count to predict likely ion charge.",
+        "Compare periodic groups to infer similar reactivity trends."
+      ],
+      "challengePrompts": [
+        "Pick the best explanation for why group trends support valence-electron logic."
+      ],
+      "hints": [
+        "Think about which electrons are easiest to gain, lose, or share."
+      ]
+    },
+    {
+      "id": "chem-stoich-conservation",
+      "subject": "Chemistry",
+      "topic": "Stoichiometry",
+      "name": "Mole Ratio Reasoning",
+      "skill": "Use balanced equations as proportional maps",
+      "learningTarget": "Interpret coefficients as mole relationships",
+      "keyIdea": "Balanced coefficients provide fixed mole ratios between substances.",
+      "questionStems": [
+        "What does a balanced equation coefficient primarily represent?",
+        "Why are mole ratios central in stoichiometric calculations?"
+      ],
+      "correctStatements": [
+        "Coefficients indicate relative moles of reactants and products.",
+        "Mole ratios allow conversion from one substance amount to another."
+      ],
+      "misconceptions": [
+        "Coefficients represent atomic mass of each substance.",
+        "Mole ratios are optional if equation is already balanced.",
+        "Conservation applies to volume only, not amount of substance."
+      ],
+      "applications": [
+        "Convert known reactant moles to expected product moles.",
+        "Check whether reactant amounts can fully consume each other."
+      ],
+      "challengePrompts": [
+        "Choose the best justification for using mole ratios before mass conversions."
+      ],
+      "hints": [
+        "Read coefficients as a recipe ratio before doing arithmetic."
+      ]
+    },
+    {
+      "id": "bio-cell-membrane",
+      "subject": "Biology",
+      "topic": "Cell Biology",
+      "name": "Selective Permeability",
+      "skill": "Relate membrane structure to transport behavior",
+      "learningTarget": "Explain how cells regulate material movement",
+      "keyIdea": "Cell membranes allow some substances through while restricting others.",
+      "questionStems": [
+        "Which statement best explains selective permeability?",
+        "Why is selective permeability vital for cell survival?"
+      ],
+      "correctStatements": [
+        "Selective permeability helps maintain internal conditions required for life.",
+        "The membrane controls entry and exit of substances based on properties and transport mechanisms."
+      ],
+      "misconceptions": [
+        "Cell membranes are fully open barriers to maximize exchange speed.",
+        "Only water can pass through membranes; all solutes are permanently blocked.",
+        "Permeability is fixed and cannot involve transport proteins."
+      ],
+      "applications": [
+        "Predict osmotic effects when external solute concentration changes.",
+        "Explain how nutrient uptake can occur against concentration gradients."
+      ],
+      "challengePrompts": [
+        "Select the best reason cells need both passive and active transport strategies."
+      ],
+      "hints": [
+        "A living cell needs control, not unrestricted mixing."
+      ]
+    },
+    {
+      "id": "bio-genetics-alleles",
+      "subject": "Biology",
+      "topic": "Genetics",
+      "name": "Alleles and Trait Expression",
+      "skill": "Interpret genotype-phenotype links",
+      "learningTarget": "Differentiate inherited information from expressed trait",
+      "keyIdea": "Genes can exist in variant forms called alleles that influence phenotype.",
+      "questionStems": [
+        "What is the most accurate description of an allele?",
+        "How do alleles relate to trait variation?"
+      ],
+      "correctStatements": [
+        "Alleles are different forms of the same gene that can produce trait differences.",
+        "Genotype combinations of alleles influence observed phenotype."
+      ],
+      "misconceptions": [
+        "Alleles are traits, while genes are proteins with no inheritance role.",
+        "Each person has only one allele for each gene in diploid organisms.",
+        "Phenotype always reveals genotype exactly without exceptions."
+      ],
+      "applications": [
+        "Use allele notation to analyze simple inheritance patterns.",
+        "Distinguish carrier status from dominant trait expression."
+      ],
+      "challengePrompts": [
+        "Choose the most defensible explanation for why phenotype may not uniquely identify genotype."
+      ],
+      "hints": [
+        "Think of gene as location and allele as version at that location."
+      ]
+    },
+    {
+      "id": "earth-tectonics-boundaries",
+      "subject": "Earth Science",
+      "topic": "Plate Tectonics",
+      "name": "Plate Boundary Interactions",
+      "skill": "Classify boundary types and effects",
+      "learningTarget": "Link boundary motion to geologic events",
+      "keyIdea": "Different plate boundary motions produce characteristic landforms and hazards.",
+      "questionStems": [
+        "Which statement correctly connects boundary motion and Earth process?",
+        "Why do convergent and divergent boundaries create different geologic outcomes?"
+      ],
+      "correctStatements": [
+        "Convergent boundaries commonly produce subduction, mountains, and strong seismic activity.",
+        "Divergent boundaries generate new crust as plates move apart."
+      ],
+      "misconceptions": [
+        "Transform boundaries create new crust fastest due to sideways motion.",
+        "All volcanoes form only at divergent boundaries.",
+        "Plate boundaries are fixed lines with no relative movement over time."
+      ],
+      "applications": [
+        "Infer earthquake risk from mapped plate boundary type.",
+        "Relate ocean ridge formation to divergent movement."
+      ],
+      "challengePrompts": [
+        "Select the best argument for why one boundary type can host both earthquakes and volcanism."
+      ],
+      "hints": [
+        "Track plate motion direction before predicting outcomes."
+      ]
+    },
+    {
+      "id": "earth-weather-pressure",
+      "subject": "Earth Science",
+      "topic": "Weather Systems",
+      "name": "Pressure and Wind Patterns",
+      "skill": "Interpret atmospheric pressure effects",
+      "learningTarget": "Explain wind as pressure-driven movement",
+      "keyIdea": "Air generally moves from high-pressure regions toward low-pressure regions.",
+      "questionStems": [
+        "What is the main driver of horizontal wind movement?",
+        "Which explanation best links pressure gradients and weather changes?"
+      ],
+      "correctStatements": [
+        "Pressure differences drive wind from higher pressure to lower pressure areas.",
+        "Stronger pressure gradients generally produce stronger winds."
+      ],
+      "misconceptions": [
+        "Wind always moves from low pressure to high pressure.",
+        "Pressure has little role in weather because temperature alone controls wind.",
+        "Calm weather means pressure is absent from the atmosphere."
+      ],
+      "applications": [
+        "Use pressure maps to anticipate wind direction trends.",
+        "Relate rapidly changing pressure to potential storm development."
+      ],
+      "challengePrompts": [
+        "Choose the strongest interpretation of why steep pressure gradients can signal hazardous weather."
+      ],
+      "hints": [
+        "Think of air flow like balancing differences between regions."
+      ]
+    },
+    {
+      "id": "cs-algo-complexity",
+      "subject": "Computer Science",
+      "topic": "Algorithms",
+      "name": "Algorithm Efficiency",
+      "skill": "Compare growth rates conceptually",
+      "learningTarget": "Reason about performance as input size grows",
+      "keyIdea": "Time complexity compares how running steps scale with input size.",
+      "questionStems": [
+        "Why is asymptotic complexity useful when comparing algorithms?",
+        "Which statement best describes algorithmic efficiency analysis?"
+      ],
+      "correctStatements": [
+        "Complexity focuses on growth trend as input size becomes large.",
+        "An algorithm with slower growth can outperform others on large inputs."
+      ],
+      "misconceptions": [
+        "Complexity only measures exact runtime on one computer setup.",
+        "If two algorithms solve the same task, growth rate differences do not matter.",
+        "Lower constant factors always beat lower growth rates for large inputs."
+      ],
+      "applications": [
+        "Select scalable strategies for increasing dataset sizes.",
+        "Justify tradeoffs between implementation simplicity and long-term efficiency."
+      ],
+      "challengePrompts": [
+        "Pick the best defense of using complexity classes in engineering decisions."
+      ],
+      "hints": [
+        "Focus on trend with n, not one benchmark result."
+      ]
+    },
+    {
+      "id": "cs-ds-stack-queue",
+      "subject": "Computer Science",
+      "topic": "Data Structures",
+      "name": "Stack vs Queue Behavior",
+      "skill": "Select data structure by access rule",
+      "learningTarget": "Differentiate LIFO and FIFO processing",
+      "keyIdea": "Stacks process last-in-first-out, while queues process first-in-first-out.",
+      "questionStems": [
+        "Which statement correctly contrasts stacks and queues?",
+        "Why does access order matter when choosing between stack and queue?"
+      ],
+      "correctStatements": [
+        "Stacks remove the most recently added item first, queues remove the earliest added item first.",
+        "Choosing the wrong access rule can produce incorrect process behavior."
+      ],
+      "misconceptions": [
+        "Stacks and queues are equivalent because both only add and remove elements.",
+        "Queues are LIFO while stacks are FIFO.",
+        "Access order rarely affects correctness, only memory usage."
+      ],
+      "applications": [
+        "Use stack behavior for undo operations.",
+        "Use queue behavior for fair first-come task processing."
+      ],
+      "challengePrompts": [
+        "Select the strongest argument for using queue semantics in scheduling systems."
+      ],
+      "hints": [
+        "Track which item leaves first after multiple insertions."
+      ]
+    }
+  ]
+}

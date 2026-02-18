@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up | Quizionix</title>
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">Quizionix</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="signin.html">Sign In</a>
+        <a href="signup.html" class="active">Sign Up</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container auth-wrap">
+    <section class="login-panel">
+      <div class="login-hero">
+        <div class="login-hero-top">
+          <span class="login-hero-brand">Quizionix</span>
+          <a href="index.html" class="btn btn-small">Back</a>
+        </div>
+        <div class="login-hero-body">
+          <p>Create Your Profile,</p>
+          <p>Start Your Journey</p>
+        </div>
+        <div class="login-hero-dots" aria-hidden="true">
+          <span></span><span class="active"></span><span></span>
+        </div>
+      </div>
+
+      <div class="login-auth panel auth-card">
+        <h1>Create Account</h1>
+        <p class="muted">Use your official Fatima student email only.</p>
+
+        <form id="signupForm" novalidate>
+          <label for="signupName">Name</label>
+          <input id="signupName" name="name" type="text" required placeholder="Charles Bolivar" />
+
+          <label for="signupEmail">Fatima Email</label>
+          <input id="signupEmail" name="email" type="email" required placeholder="cgbolivar7522qc@student.fatima.edu.ph" />
+
+          <label for="signupPassword">Password</label>
+          <div class="password-wrap">
+            <input id="signupPassword" name="password" type="password" required placeholder="At least 6 characters" />
+            <button type="button" class="icon-btn toggle-password" data-target="signupPassword" aria-label="Toggle password visibility">👁</button>
+          </div>
+
+          <label for="signupConfirm">Confirm Password</label>
+          <div class="password-wrap">
+            <input id="signupConfirm" name="confirmPassword" type="password" required placeholder="Re-enter password" />
+            <button type="button" class="icon-btn toggle-password" data-target="signupConfirm" aria-label="Toggle confirm password visibility">👁</button>
+          </div>
+
+          <div class="terms-box">
+            <h3>Terms of Service (Placeholder)</h3>
+            <p>By creating an account, you agree to use Quizionix for school learning and maintain academic integrity.</p>
+            <p class="muted">Replace this placeholder with complete legal terms later.</p>
+          </div>
+
+          <label class="checkbox-line">
+            <input id="agreeTerms" type="checkbox" />
+            <span>I agree to the Terms of Service</span>
+          </label>
+
+          <p id="signupError" class="error-msg" aria-live="polite"></p>
+          <button id="signupSubmit" type="submit" class="btn full" disabled>Sign Up</button>
+        </form>
+
+        <p class="auth-foot">
+          Already have an account? <a href="signin.html">Sign in here</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/site.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+{
+  "subjects": {
+    "Mathematics": {
+      "topics": {
+        "Algebra": {
+          "difficultyPath": ["Beginner", "Intermediate", "Advanced"],
+          "prerequisite": null
+        },
+        "Functions": {
+          "difficultyPath": ["Beginner", "Intermediate", "Advanced"],
+          "prerequisite": "Algebra"
+        }
+      }
+    },
+    "Physics": {
+      "topics": {
+        "Kinematics": {
+          "difficultyPath": ["Beginner", "Intermediate", "Advanced"],
+          "prerequisite": null
+        },
+        "Forces and Motion": {
+          "difficultyPath": ["Beginner", "Intermediate", "Advanced"],
+          "prerequisite": "Kinematics"
+        }
+      }
+    },
+    "Chemistry": {
+      "topics": {
+        "Atomic Structure": {
+          "difficultyPath": ["Beginner", "Intermediate", "Advanced"],
+          "prerequisite": null
+        },
+        "Stoichiometry": {
+          "difficultyPath": ["Beginner", "Intermediate", "Advanced"],
+          "prerequisite": "Atomic Structure"
+        }
+      }
+    },
+    "Biology": {
+      "topics": {
+        "Cell Biology": {
+          "difficultyPath": ["Beginner", "Intermediate", "Advanced"],
+          "prerequisite": null
+        },
+        "Genetics": {
+          "difficultyPath": ["Beginner", "Intermediate", "Advanced"],
+          "prerequisite": "Cell Biology"
+        }
+      }
+    },
+    "Earth Science": {
+      "topics": {
+        "Plate Tectonics": {
+          "difficultyPath": ["Beginner", "Intermediate", "Advanced"],
+          "prerequisite": null
+        },
+        "Weather Systems": {
+          "difficultyPath": ["Beginner", "Intermediate", "Advanced"],
+          "prerequisite": null
+        }
+      }
+    },
+    "Computer Science": {
+      "topics": {
+        "Algorithms": {
+          "difficultyPath": ["Beginner", "Intermediate", "Advanced"],
+          "prerequisite": null
+        },
+        "Data Structures": {
+          "difficultyPath": ["Beginner", "Intermediate", "Advanced"],
+          "prerequisite": "Algorithms"
+        }
+      }
+    }
+  }
+}

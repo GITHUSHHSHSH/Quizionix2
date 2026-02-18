@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Quizionix Telemetry Event",
+  "type": "object",
+  "required": [
+    "event_name",
+    "event_version",
+    "timestamp",
+    "session_id",
+    "user_id_hash"
+  ],
+  "properties": {
+    "event_name": {
+      "type": "string",
+      "enum": [
+        "session_started",
+        "question_presented",
+        "answer_submitted",
+        "question_timeout",
+        "question_skipped",
+        "difficulty_adjusted",
+        "session_completed",
+        "session_error",
+        "study_plan_viewed"
+      ]
+    },
+    "event_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "user_id_hash": {
+      "type": "string",
+      "minLength": 8
+    },
+    "subject": {
+      "type": "string",
+      "enum": [
+        "Mathematics",
+        "Physics",
+        "Chemistry",
+        "Biology",
+        "Earth Science",
+        "Computer Science"
+      ]
+    },
+    "learning_goal": {
+      "type": "string",
+      "enum": [
+        "practice_basics",
+        "weak_areas",
+        "challenge_mode"
+      ]
+    },
+    "question_id": {
+      "type": ["string", "null"]
+    },
+    "concept_id": {
+      "type": ["string", "null"]
+    },
+    "topic": {
+      "type": ["string", "null"]
+    },
+    "difficulty_before": {
+      "type": ["string", "null"],
+      "enum": ["Beginner", "Intermediate", "Advanced", null]
+    },
+    "difficulty_after": {
+      "type": ["string", "null"],
+      "enum": ["Beginner", "Intermediate", "Advanced", null]
+    },
+    "is_correct": {
+      "type": ["boolean", "null"]
+    },
+    "is_skipped": {
+      "type": ["boolean", "null"]
+    },
+    "time_allowed_sec": {
+      "type": ["number", "null"],
+      "minimum": 0
+    },
+    "time_spent_sec": {
+      "type": ["number", "null"],
+      "minimum": 0
+    },
+    "answer_latency_bucket": {
+      "type": ["string", "null"],
+      "enum": ["fast", "expected", "slow", null]
+    },
+    "question_index": {
+      "type": ["integer", "null"],
+      "minimum": 1
+    },
+    "total_questions": {
+      "type": ["integer", "null"],
+      "minimum": 1
+    },
+    "completion_rate": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "error_code": {
+      "type": ["string", "null"]
+    },
+    "error_stage": {
+      "type": ["string", "null"],
+      "enum": ["init", "start_quiz", "question_gen", "submit", "next", "finish", "ui", null]
+    },
+    "motivation_proxy": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "engagement_proxy": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "perceived_effectiveness_proxy": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "usability_proxy": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

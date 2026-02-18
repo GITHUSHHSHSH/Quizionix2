@@ -1,0 +1,580 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quizionix</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='%2388A7D2'/><stop offset='100%' stop-color='%236C89B9'/></linearGradient></defs><rect fill='%230F1422' width='100' height='100' rx='22'/><circle cx='50' cy='50' r='31' fill='none' stroke='url(%23g)' stroke-width='6'/><path d='M50 28l17 10v24L50 72 33 62V38z' fill='none' stroke='%23D9E7FA' stroke-width='4' stroke-linejoin='round'/><text x='50' y='58' font-size='20' font-weight='700' text-anchor='middle' fill='%23D9E7FA' font-family='Segoe UI'>QX</text></svg>" type="image/svg+xml">
+</head>
+<body class="dark">
+  <div id="loadingScreen" class="loading-screen" aria-live="polite">
+    <div class="loading-brand"><span class="brand-mark" aria-hidden="true"></span><span class="brand-text">Quizionix</span></div>
+    <p class="loading-text">Loading assets...</p>
+    <div class="loading-bar-track">
+      <div class="loading-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- ---------- Front + Login ---------- -->
+  <div class="page-container front-wrap" id="loginPage">
+    <button id="frontSettingsBtn" class="front-settings-btn" aria-label="Open quick settings">&#9881;</button>
+
+    <div id="frontSettingsPanel" class="front-settings-panel" aria-hidden="true">
+      <h3>Quick Settings</h3>
+      <label class="settings-toggle-inline">
+        <span>Dark Mode</span>
+        <input type="checkbox" id="frontDarkModeToggle" checked />
+      </label>
+      <label class="settings-toggle-inline">
+        <span>High Contrast</span>
+        <input type="checkbox" id="frontHighContrastToggle" />
+      </label>
+      <label class="settings-toggle-inline">
+        <span>Reduce Motion</span>
+        <input type="checkbox" id="frontReduceMotionToggle" />
+      </label>
+      <p class="front-settings-note">Theme</p>
+      <div class="settings-theme-options front-theme-options">
+        <div class="settings-theme-option" data-theme="blue-tech">
+          <div class="theme-preview-small">
+            <div class="color-swatch-small" style="background: #2563EB;"></div>
+            <div class="color-swatch-small" style="background: #1E40AF;"></div>
+            <div class="color-swatch-small" style="background: #E0E7FF;"></div>
+          </div>
+          <p>Blue Tech</p>
+        </div>
+        <div class="settings-theme-option" data-theme="dark-modern">
+          <div class="theme-preview-small">
+            <div class="color-swatch-small" style="background: #0F172A;"></div>
+            <div class="color-swatch-small" style="background: #1E293B;"></div>
+            <div class="color-swatch-small" style="background: #CBD5E1;"></div>
+          </div>
+          <p>Dark Modern</p>
+        </div>
+        <div class="settings-theme-option" data-theme="purple-gamified">
+          <div class="theme-preview-small">
+            <div class="color-swatch-small" style="background: #7C3AED;"></div>
+            <div class="color-swatch-small" style="background: #6D28D9;"></div>
+            <div class="color-swatch-small" style="background: #EDE9FE;"></div>
+          </div>
+          <p>Purple Gamified</p>
+        </div>
+        <div class="settings-theme-option active" data-theme="green-progress">
+          <div class="theme-preview-small">
+            <div class="color-swatch-small" style="background: #22C55E;"></div>
+            <div class="color-swatch-small" style="background: #16A34A;"></div>
+            <div class="color-swatch-small" style="background: #DCFCE7;"></div>
+          </div>
+          <p>Green Progress</p>
+        </div>
+        <div class="settings-theme-option" data-theme="blue-purple">
+          <div class="theme-preview-small">
+            <div class="color-swatch-small" style="background: #2563EB;"></div>
+            <div class="color-swatch-small" style="background: #7C3AED;"></div>
+            <div class="color-swatch-small" style="background: #F3E8FF;"></div>
+          </div>
+          <p>Blue-Purple</p>
+        </div>
+      </div>
+    </div>
+
+    <section id="frontPage" class="front-page">
+      <h1 class="front-title"><span class="brand-mark" aria-hidden="true"></span><span class="brand-text">Quizionix</span></h1>
+      <p class="front-subtitle">Game-like adaptive STEM review</p>
+      <div class="front-actions">
+        <button id="showLoginBtn" class="btn-main">Log In</button>
+        <button id="aboutBtn" class="btn-ghost">About Us</button>
+      </div>
+      <p class="front-credit">Made by Charles</p>
+    </section>
+
+    <div class="login-card hidden" id="loginCard">
+      <button id="backToFrontBtn" class="btn-ghost login-back-btn">Back</button>
+      <h1>Welcome Back</h1>
+      <p class="login-subtitle">Use your Fatima University student email to continue</p>
+      <form id="loginForm">
+        <div class="input-group">
+          <input type="email" id="email" placeholder="School email" required />
+        </div>
+        <div class="input-group">
+          <input type="password" id="password" placeholder="Password" required />
+        </div>
+        <button type="submit" class="btn-login">Login</button>
+      </form>
+      <p id="loginError" class="error-msg"></p>
+      <p id="questionsStatus" class="status-msg"></p>
+      <p class="data-rights">We protect your data. Only your email and password are stored for research purposes. You can request deletion anytime.</p>
+    </div>
+  </div>
+
+  <!-- ---------- Main App Container ---------- -->
+  <div class="app-container" id="app" style="display:none;">
+
+    <!-- ---------- Sidebar Menu ---------- -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2><span class="brand-mark" aria-hidden="true"></span><span class="brand-text">Quizionix</span></h2>
+        <p>A STEM Study Guide Platform</p>
+        <div id="menuRankBadge" class="menu-rank-badge">Rank: Nova Cadet</div>
+      </div>
+      <ul>
+        <li data-tab="homeTab" data-menu="Home" class="active-tab">
+          <span class="nav-icon" aria-hidden="true">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"/><path d="M6 9.5V20h12V9.5"/></svg>
+          </span>
+          <span class="nav-label">Home</span>
+        </li>
+        <li data-tab="subjectsTab" data-menu="Subjects" class="has-submenu">
+          <span class="nav-icon" aria-hidden="true">
+            <svg class="icon-svg" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>
+          </span>
+          <span class="nav-label">Subjects</span>
+          <span class="submenu-caret">v</span>
+          <ul class="submenu" id="subjectQuickMenu">
+            <li data-subject-filter="all"><span class="subject-item-icon">•</span><span>All Subjects</span></li>
+            <li data-subject-filter="Mathematics"><span class="subject-item-icon">M</span><span>Mathematics</span></li>
+            <li data-subject-filter="Physics"><span class="subject-item-icon">P</span><span>Physics</span></li>
+            <li data-subject-filter="Chemistry"><span class="subject-item-icon">C</span><span>Chemistry</span></li>
+            <li data-subject-filter="Biology"><span class="subject-item-icon">B</span><span>Biology</span></li>
+            <li data-subject-filter="Earth Science"><span class="subject-item-icon">E</span><span>Earth Science</span></li>
+            <li data-subject-filter="Computer Science"><span class="subject-item-icon">&lt;/&gt;</span><span>Computer Science</span></li>
+          </ul>
+        </li>
+        <li data-tab="studyTab" data-menu="Study Lab">
+          <span class="nav-icon" aria-hidden="true">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M4 5h6a3 3 0 0 1 3 3v11H7a3 3 0 0 0-3 3z"/><path d="M20 5h-6a3 3 0 0 0-3 3v11h6a3 3 0 0 1 3 3z"/></svg>
+          </span>
+          <span class="nav-label">Study Lab</span>
+        </li>
+        <li data-tab="dashboardTab" data-menu="Dashboard">
+          <span class="nav-icon" aria-hidden="true">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M4 19h16"/><rect x="6" y="11" width="3" height="6" rx="1"/><rect x="11" y="8" width="3" height="9" rx="1"/><rect x="16" y="5" width="3" height="12" rx="1"/></svg>
+          </span>
+          <span class="nav-label">Dashboard</span>
+        </li>
+        <li data-tab="settingsTab" data-menu="Settings">
+          <span class="nav-icon" aria-hidden="true">
+            <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a1 1 0 1 1-1.4 1.4l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V19a1 1 0 1 1-2 0v-.2a1 1 0 0 0-.6-.9 1 1 0 0 0-1.1.2l-.1.1a1 1 0 1 1-1.4-1.4l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H5a1 1 0 1 1 0-2h.2a1 1 0 0 0 .9-.6 1 1 0 0 0-.2-1.1l-.1-.1a1 1 0 1 1 1.4-1.4l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V5a1 1 0 1 1 2 0v.2a1 1 0 0 0 .6.9 1 1 0 0 0 1.1-.2l.1-.1a1 1 0 1 1 1.4 1.4l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6H19a1 1 0 1 1 0 2h-.2a1 1 0 0 0-.9.6z"/></svg>
+          </span>
+          <span class="nav-label">Settings</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ---------- Content ---------- -->
+    <div class="content">
+      <button id="menuToggleBtn" class="menu-toggle-btn">Menu</button>
+
+      <!-- ---------- Home Tab ---------- -->
+      <div class="tab-page active" id="homeTab">
+        <h1>Welcome to Quizionix</h1>
+        <p>Interactive STEM quizzes for Grade 11-12 students</p>
+        <button id="startBtn" class="btn-main">Go to Subjects</button>
+        <div class="home-featured">
+          <h3>Featured Study Materials</h3>
+          <p id="homeRankGuide" class="settings-description"></p>
+          <div class="rank-progress-wrap">
+            <div class="rank-progress-track">
+              <div id="rankProgressFill" class="rank-progress-fill"></div>
+            </div>
+            <p id="rankProgressText" class="settings-description"></p>
+          </div>
+          <div id="featuredMaterialsList" class="study-methods-list"></div>
+        </div>
+      </div>
+
+      <!-- ---------- Subjects Tab ---------- -->
+      <div class="tab-page" id="subjectsTab">
+        <h1>Select a Subject</h1>
+        <div class="subject-explorer">
+          <label class="settings-field">
+            <span>Subject Filter</span>
+            <select id="subjectFilterSelect">
+              <option value="all">All Subjects</option>
+              <option value="Mathematics">Mathematics</option>
+              <option value="Physics">Physics</option>
+              <option value="Chemistry">Chemistry</option>
+              <option value="Biology">Biology</option>
+              <option value="Earth Science">Earth Science</option>
+              <option value="Computer Science">Computer Science</option>
+            </select>
+          </label>
+          <button id="clearSubjectFilterBtn" class="btn-ghost">Show All</button>
+        </div>
+        <div class="subjects">
+          <div class="subject-card" data-subject="Mathematics">
+            <h2>Mathematics</h2>
+            <p class="subject-chapter">Chapter Path: Algebra, Functions, Applied Models</p>
+            <label class="subject-config-label">Learning Goal</label>
+            <select class="learningGoalSelect">
+              <option value="practice_basics">Practice Basics</option>
+              <option value="weak_areas">Weak Areas</option>
+              <option value="challenge_mode">Challenge Mode</option>
+            </select>
+            <label class="subject-config-label">Quiz Category</label>
+            <select class="quizCategorySelect">
+              <option value="core_concepts">Core Concepts</option>
+              <option value="problem_solving">Problem Solving</option>
+              <option value="challenge_set">Challenge Set</option>
+            </select>
+            <div class="progress-bar"><div class="progress"></div></div>
+            <button class="subjectBtn">Start Quiz</button>
+            <button class="subjectStudyBtn btn-ghost">Open Subject Guide</button>
+            <p class="lastScore"></p>
+          </div>
+          <div class="subject-card" data-subject="Physics">
+            <h2>Physics</h2>
+            <p class="subject-chapter">Chapter Path: Motion, Forces, Systems</p>
+            <label class="subject-config-label">Learning Goal</label>
+            <select class="learningGoalSelect">
+              <option value="practice_basics">Practice Basics</option>
+              <option value="weak_areas">Weak Areas</option>
+              <option value="challenge_mode">Challenge Mode</option>
+            </select>
+            <label class="subject-config-label">Quiz Category</label>
+            <select class="quizCategorySelect">
+              <option value="core_concepts">Core Concepts</option>
+              <option value="problem_solving">Problem Solving</option>
+              <option value="challenge_set">Challenge Set</option>
+            </select>
+            <div class="progress-bar"><div class="progress"></div></div>
+            <button class="subjectBtn">Start Quiz</button>
+            <button class="subjectStudyBtn btn-ghost">Open Subject Guide</button>
+            <p class="lastScore"></p>
+          </div>
+          <div class="subject-card" data-subject="Chemistry">
+            <h2>Chemistry</h2>
+            <p class="subject-chapter">Chapter Path: Atomic Logic, Stoichiometry, Reactions</p>
+            <label class="subject-config-label">Learning Goal</label>
+            <select class="learningGoalSelect">
+              <option value="practice_basics">Practice Basics</option>
+              <option value="weak_areas">Weak Areas</option>
+              <option value="challenge_mode">Challenge Mode</option>
+            </select>
+            <label class="subject-config-label">Quiz Category</label>
+            <select class="quizCategorySelect">
+              <option value="core_concepts">Core Concepts</option>
+              <option value="problem_solving">Problem Solving</option>
+              <option value="challenge_set">Challenge Set</option>
+            </select>
+            <div class="progress-bar"><div class="progress"></div></div>
+            <button class="subjectBtn">Start Quiz</button>
+            <button class="subjectStudyBtn btn-ghost">Open Subject Guide</button>
+            <p class="lastScore"></p>
+          </div>
+          <div class="subject-card" data-subject="Biology">
+            <h2>Biology</h2>
+            <p class="subject-chapter">Chapter Path: Cells, Genetics, Systems</p>
+            <label class="subject-config-label">Learning Goal</label>
+            <select class="learningGoalSelect">
+              <option value="practice_basics">Practice Basics</option>
+              <option value="weak_areas">Weak Areas</option>
+              <option value="challenge_mode">Challenge Mode</option>
+            </select>
+            <label class="subject-config-label">Quiz Category</label>
+            <select class="quizCategorySelect">
+              <option value="core_concepts">Core Concepts</option>
+              <option value="problem_solving">Problem Solving</option>
+              <option value="challenge_set">Challenge Set</option>
+            </select>
+            <div class="progress-bar"><div class="progress"></div></div>
+            <button class="subjectBtn">Start Quiz</button>
+            <button class="subjectStudyBtn btn-ghost">Open Subject Guide</button>
+            <p class="lastScore"></p>
+          </div>
+          <div class="subject-card" data-subject="Earth Science">
+            <h2>Earth Science</h2>
+            <p class="subject-chapter">Chapter Path: Plate Systems, Weather Dynamics</p>
+            <label class="subject-config-label">Learning Goal</label>
+            <select class="learningGoalSelect">
+              <option value="practice_basics">Practice Basics</option>
+              <option value="weak_areas">Weak Areas</option>
+              <option value="challenge_mode">Challenge Mode</option>
+            </select>
+            <label class="subject-config-label">Quiz Category</label>
+            <select class="quizCategorySelect">
+              <option value="core_concepts">Core Concepts</option>
+              <option value="problem_solving">Problem Solving</option>
+              <option value="challenge_set">Challenge Set</option>
+            </select>
+            <div class="progress-bar"><div class="progress"></div></div>
+            <button class="subjectBtn">Start Quiz</button>
+            <button class="subjectStudyBtn btn-ghost">Open Subject Guide</button>
+            <p class="lastScore"></p>
+          </div>
+          <div class="subject-card" data-subject="Computer Science">
+            <h2>Computer Science</h2>
+            <p class="subject-chapter">Chapter Path: Algorithms, Data Structures</p>
+            <label class="subject-config-label">Learning Goal</label>
+            <select class="learningGoalSelect">
+              <option value="practice_basics">Practice Basics</option>
+              <option value="weak_areas">Weak Areas</option>
+              <option value="challenge_mode">Challenge Mode</option>
+            </select>
+            <label class="subject-config-label">Quiz Category</label>
+            <select class="quizCategorySelect">
+              <option value="core_concepts">Core Concepts</option>
+              <option value="problem_solving">Problem Solving</option>
+              <option value="challenge_set">Challenge Set</option>
+            </select>
+            <div class="progress-bar"><div class="progress"></div></div>
+            <button class="subjectBtn">Start Quiz</button>
+            <button class="subjectStudyBtn btn-ghost">Open Subject Guide</button>
+            <p class="lastScore"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-page" id="studyTab">
+        <h1>STEM Study Handbook</h1>
+        <p class="settings-intro">Read your personalized plan like a guided reviewer book.</p>
+        <div class="study-book">
+          <div class="study-book-spine"></div>
+          <div class="study-book-pages">
+            <section class="study-book-page">
+              <h3>Chapter I: Plan Builder</h3>
+              <label class="settings-field">
+                <span>Subject Focus</span>
+                <select id="studySubjectSelect">
+                  <option value="all">All Subjects</option>
+                  <option value="Mathematics">Mathematics</option>
+                  <option value="Physics">Physics</option>
+                  <option value="Chemistry">Chemistry</option>
+                  <option value="Biology">Biology</option>
+                  <option value="Earth Science">Earth Science</option>
+                  <option value="Computer Science">Computer Science</option>
+                </select>
+              </label>
+              <button id="generateStudyPlanBtn" class="btn-main">Generate Study Plan</button>
+              <div id="studyPlanOutput" class="study-output"></div>
+              <div id="studySnapshot" class="study-output"></div>
+            </section>
+            <section class="study-book-page">
+              <h3>Chapter II: Methods + Materials</h3>
+              <div id="studyMethodsList" class="study-methods-list"></div>
+              <p class="settings-description">Correlated with your current rank difficulty.</p>
+              <div id="studyMaterialsList" class="study-methods-list"></div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-page" id="dashboardTab">
+        <h1>Dashboard</h1>
+        <p class="settings-intro">Track progress, rank state, and weekly tasks.</p>
+        <div class="settings-layout">
+          <div class="settings-panel">
+            <h3>Progress</h3>
+            <p id="dashboardProgressText" class="settings-description">No progress yet.</p>
+            <div class="rank-progress-wrap">
+              <div class="rank-progress-track">
+                <div id="dashboardRankFill" class="rank-progress-fill"></div>
+              </div>
+            </div>
+          </div>
+          <div class="settings-panel">
+            <h3>Rank</h3>
+            <p id="dashboardRankName" class="settings-description">N/A</p>
+            <p id="dashboardRankHint" class="settings-description">Play quizzes to rank up.</p>
+          </div>
+          <div class="settings-panel">
+            <h3>To-Do</h3>
+            <label class="settings-field">
+              <span>Add Task</span>
+              <input id="todoInput" type="text" placeholder="Review weak Physics concepts" />
+            </label>
+            <button id="addTodoBtn" class="btn-main">Add Task</button>
+            <div id="todoList" class="study-output"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- Settings Tab ---------- -->
+      <div class="tab-page" id="settingsTab">
+        <h1><span id="settingsEmoji">Control Center</span></h1>
+        <p class="settings-intro">Tune appearance, sound, and quiz behavior from one place.</p>
+
+        <div class="settings-layout">
+          <div class="settings-panel">
+            <h3>Profile</h3>
+            <p class="settings-description">Signed in as:</p>
+            <p id="profileEmail"></p>
+            <button id="clearLocalDataBtn" class="btn-main">Clear Local Data</button>
+          </div>
+
+          <div class="settings-panel">
+            <h3><span id="themesEmoji">Theme Studio</span></h3>
+            <p class="settings-description">Pick a visual style.</p>
+            <div class="settings-theme-options">
+              <div class="settings-theme-option" data-theme="blue-tech">
+                <div class="theme-preview-small">
+                  <div class="color-swatch-small" style="background: #2563EB;"></div>
+                  <div class="color-swatch-small" style="background: #1E40AF;"></div>
+                  <div class="color-swatch-small" style="background: #E0E7FF;"></div>
+                </div>
+                <p>Blue Tech</p>
+              </div>
+              <div class="settings-theme-option" data-theme="dark-modern">
+                <div class="theme-preview-small">
+                  <div class="color-swatch-small" style="background: #0F172A;"></div>
+                  <div class="color-swatch-small" style="background: #1E293B;"></div>
+                  <div class="color-swatch-small" style="background: #CBD5E1;"></div>
+                </div>
+                <p>Dark Modern</p>
+              </div>
+              <div class="settings-theme-option" data-theme="purple-gamified">
+                <div class="theme-preview-small">
+                  <div class="color-swatch-small" style="background: #7C3AED;"></div>
+                  <div class="color-swatch-small" style="background: #6D28D9;"></div>
+                  <div class="color-swatch-small" style="background: #EDE9FE;"></div>
+                </div>
+                <p>Purple Gamified</p>
+              </div>
+              <div class="settings-theme-option active" data-theme="green-progress">
+                <div class="theme-preview-small">
+                  <div class="color-swatch-small" style="background: #22C55E;"></div>
+                  <div class="color-swatch-small" style="background: #16A34A;"></div>
+                  <div class="color-swatch-small" style="background: #DCFCE7;"></div>
+                </div>
+                <p>Green Progress</p>
+              </div>
+              <div class="settings-theme-option" data-theme="blue-purple">
+                <div class="theme-preview-small">
+                  <div class="color-swatch-small" style="background: #2563EB;"></div>
+                  <div class="color-swatch-small" style="background: #7C3AED;"></div>
+                  <div class="color-swatch-small" style="background: #F3E8FF;"></div>
+                </div>
+                <p>Blue-Purple</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-panel">
+            <h3>Experience</h3>
+            <div class="settings-toggle">
+              <label>
+                <input type="checkbox" id="darkModeToggleSettings" checked />
+                <div class="toggle-switch"></div>
+                <span>Dark Mode</span>
+              </label>
+            </div>
+            <div class="settings-toggle">
+              <label>
+                <input type="checkbox" id="sfxToggle" checked />
+                <div class="toggle-switch"></div>
+                <span>Sound Effects</span>
+              </label>
+            </div>
+            <label class="settings-field">
+              <span>Music Volume</span>
+              <input type="range" id="musicVolume" min="0" max="100" value="30" />
+            </label>
+            <label class="settings-field">
+              <span>Question Timer</span>
+              <select id="timerPerQuestion">
+                <option value="10">10 seconds</option>
+                <option value="15" selected>15 seconds</option>
+                <option value="20">20 seconds</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="settings-panel">
+            <h3>Accessibility</h3>
+            <div class="settings-toggle">
+              <label>
+                <input type="checkbox" id="highContrastToggle" />
+                <div class="toggle-switch"></div>
+                <span>High Contrast</span>
+              </label>
+            </div>
+            <div class="settings-toggle">
+              <label>
+                <input type="checkbox" id="reduceMotionToggle" />
+                <div class="toggle-switch"></div>
+                <span>Reduce Motion</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- Quiz Page ---------- -->
+      <div class="tab-page" id="quizPage">
+        <div class="quiz-mode-controls">
+          <button id="quizSettingsBtn" class="btn-main">Settings</button>
+          <button id="quizBackMenuBtn" class="btn-main">Back to Menu</button>
+        </div>
+        <div class="quiz-header">
+          <h1 id="subjectTitle">Quiz</h1>
+          <div class="quiz-stats">
+            <span class="stat-item"><i>Time</i> Left: <span id="time">15</span>s</span>
+            <span class="stat-item"><i>XP</i>: <span id="xp">0</span></span>
+            <span class="stat-item"><i>Streak</i>: <span id="streak">0</span></span>
+            <span class="stat-item"><i>Coins</i>: <span id="coins">0</span></span>
+            <span class="stat-item"><i>Level</i>: <span id="level">1</span></span>
+            <span class="stat-item"><i>Rank</i>: <span id="rank">Nova Cadet</span></span>
+          </div>
+        </div>
+        <div class="enemy-panel" id="enemyPanel">
+          <div class="enemy-visual-wrap">
+            <div id="enemySprite" class="enemy-sprite" aria-hidden="true">[TARGET]</div>
+            <div class="enemy-meta">
+              <p id="enemyName" class="enemy-name">Challenge Core</p>
+              <p id="enemyStatus" class="enemy-status">Core Stability: 0 / 0</p>
+            </div>
+          </div>
+          <div class="enemy-health-track">
+            <div id="enemyHealthFill" class="enemy-health-fill"></div>
+          </div>
+        </div>
+        <div class="quiz-container">
+          <div class="lifeline-row">
+            <button id="fiftyFiftyBtn" class="btn-main lifeline-btn">50-50</button>
+            <button id="hintBtn" class="btn-main lifeline-btn">Hint</button>
+            <button id="skipBtn" class="btn-main lifeline-btn">Skip</button>
+          </div>
+          <p id="question" class="question-text"></p>
+          <div id="choices" class="choices-container"></div>
+          <p id="feedback" class="feedback-text"></p>
+          <p id="explanation" class="explanation-text"></p>
+        </div>
+        <button id="nextBtn" class="btn-main" style="display:none;">Next Question</button>
+      </div>
+
+      <!-- ---------- Quiz Summary ---------- -->
+      <div class="tab-page" id="summaryPage">
+        <div class="summary-header">
+          <h1>Quiz Complete!</h1>
+          <p class="summary-subtitle" id="summarySubtitle">Great job! Here's how you performed:</p>
+        </div>
+        
+        <div class="summary-stats">
+          <div class="stat-card">
+            <div class="stat-icon">XP</div>
+            <div class="stat-content">
+              <span class="stat-label">XP Earned</span>
+              <span class="stat-value" id="totalXPSummary">0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="summary-questions">
+          <h2>Question Review</h2>
+          <div id="summaryList" class="questions-list"></div>
+        </div>
+
+        <button id="returnDashboard" class="btn-return">Return to Subjects</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In | Quizionix</title>
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">Quizionix</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="signin.html" class="active">Sign In</a>
+        <a href="signup.html">Sign Up</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container auth-wrap">
+    <section class="login-panel">
+      <div class="login-hero">
+        <div class="login-hero-top">
+          <span class="login-hero-brand">Quizionix</span>
+          <a href="index.html" class="btn btn-small">Back</a>
+        </div>
+        <div class="login-hero-body">
+          <p>Capturing Focus,</p>
+          <p>Creating Progress</p>
+        </div>
+        <div class="login-hero-dots" aria-hidden="true">
+          <span></span><span></span><span class="active"></span>
+        </div>
+      </div>
+
+      <div class="login-auth panel auth-card">
+        <h1>Sign In</h1>
+        <p class="muted">Use your email or username to continue.</p>
+
+        <form id="signinForm" novalidate>
+          <label for="signinIdentifier">Email or Username</label>
+          <input id="signinIdentifier" name="identifier" type="text" required placeholder="you@student.fatima.edu.ph or YourName" />
+
+          <label for="signinPassword">Password</label>
+          <div class="password-wrap">
+            <input id="signinPassword" name="password" type="password" required placeholder="••••••••" />
+            <button type="button" class="icon-btn toggle-password" data-target="signinPassword" aria-label="Toggle password visibility">👁</button>
+          </div>
+
+          <p id="signinError" class="error-msg" aria-live="polite"></p>
+          <button type="submit" class="btn full">Sign In</button>
+          <button
+            type="button"
+            id="testSignInBtn"
+            class="btn full"
+            style="background: linear-gradient(120deg, rgba(125, 164, 217, 0.7), rgba(111, 141, 196, 0.7)); margin-top: 8px; border: 1px solid rgba(125, 164, 217, 0.3);"
+          >
+            Test Sign In
+          </button>
+        </form>
+        <p class="auth-foot">
+          No account yet? <a href="signup.html">Create one here</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/site.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    // Test sign-in button for quick testing
+    document.getElementById('testSignInBtn')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      const testUser = {
+        email: 'test@student.fatima.edu.ph',
+        username: 'Test User'
+      };
+      
+      localStorage.setItem('quizionix_current_user', JSON.stringify(testUser));
+      localStorage.setItem('userEmail', testUser.email);
+      localStorage.setItem('userName', testUser.username);
+      
+      window.location.href = 'home.html';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quizionix | Front Page</title>
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">Quizionix</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Home</a>
+        <a href="signin.html">Sign In</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="game.html">Play</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="kicker">Educational RPG Flow</p>
+        <h1>Quizionix</h1>
+        <p class="subtext">
+          Front page, account flow, and game progression are now unified in one website.
+          Sign in, enter your hub, and launch quiz encounters with adaptive difficulty and knowledge health.
+        </p>
+        <p>
+          <a href="signin.html" class="btn">Sign In</a>
+          <a href="signup.html" class="btn btn-small" style="margin-left: 8px;">Create Account</a>
+        </p>
+      </div>
+      <aside class="panel">
+        <h2>Quick Start</h2>
+        <ol class="how-steps">
+          <li>Create or sign in to your account.</li>
+          <li>Open Home and enter the game.</li>
+          <li>Choose a zone, branch, and clear branch boss.</li>
+        </ol>
+        <p class="muted">For testing, you can also jump straight into <a href="game.html">Game</a>.</p>
+      </aside>
+    </section>
+
+    <section class="about panel">
+      <h3>Unified Site Structure</h3>
+      <p class="muted">`index.html` (front page) -> `signin.html` / `signup.html` -> `home.html` -> `game.html`.</p>
+    </section>
+  </main>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

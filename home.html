@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | Quizionix</title>
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="home.html" class="logo">Quizionix</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="home.html" class="active">Home</a>
+        <a href="#">Profile</a>
+        <a href="#">Categories</a>
+        <button id="logoutBtn" class="btn btn-small danger" type="button">Logout</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container home-main">
+    <section class="welcome-section">
+      <h1 id="welcomeTitle">Welcome!</h1>
+      <p class="muted">Choose a category to begin your learning quest.</p>
+      <a href="game.html" class="btn">Enter Quizionix Game</a>
+    </section>
+
+    <!-- ========== Quiz Navigation Cards ========== -->
+    <section class="grid">
+      <article class="panel game-card" data-category="science">
+        <h2>Science Quest</h2>
+        <p>Explore concepts in physics, chemistry, and biology.</p>
+        <button class="btn full category-btn" type="button" data-action="open-category">Open (Soon)</button>
+      </article>
+      <article class="panel game-card" data-category="math">
+        <h2>Math Arena</h2>
+        <p>Challenge yourself with algebra, geometry, and calculus problems.</p>
+        <button class="btn full category-btn" type="button" data-action="open-category">Open (Soon)</button>
+      </article>
+      <article class="panel game-card" data-category="history">
+        <h2>History Run</h2>
+        <p>Journey through historical events and civilizations.</p>
+        <button class="btn full category-btn" type="button" data-action="open-category">Open (Soon)</button>
+      </article>
+    </section>
+  </main>
+
+  <div class="quix-chat" id="quixChat">
+    <button class="quix-launch" id="quixLaunch" type="button" aria-label="Open Quix chat">
+      Quix
+    </button>
+
+    <section class="quix-panel hidden" id="quixPanel" aria-live="polite">
+      <header class="quix-head">
+        <div>
+          <h3>Quix the Cat</h3>
+          <p>Study Tutor</p>
+        </div>
+        <button id="quixClose" class="quix-close" type="button" aria-label="Close chat">x</button>
+      </header>
+
+      <div class="quix-messages" id="quixMessages"></div>
+
+      <form id="quixForm" class="quix-form">
+        <input id="quixInput" type="text" placeholder="Ask Quix for help..." autocomplete="off" />
+        <button type="submit" class="btn btn-small">Send</button>
+      </form>
+    </section>
+  </div>
+
+  <!-- Future hook: attach quiz/game engine after auth -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="js/site.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>
